@@ -1,8 +1,8 @@
 {
-  "name": "yoga",
+  "name": "photostudio",
   "version": "1.0.0",
   "private": true,
-  "description": "yoga",
+  "description": "photostudio",
   "keywords": [
     "gatsby"
   ],
@@ -14,10 +14,14 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@react-three/drei": "^7.17.1",
+    "@react-three/fiber": "^7.0.16",
+    "@types/three": "^0.133.1",
     "gatsby": "^3.14.2",
     "gatsby-plugin-react-helmet": "^4.14.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "three": "^0.133.1"
   }
 }
