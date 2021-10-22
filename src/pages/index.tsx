@@ -16,15 +16,13 @@ export default function Index() {
         <ambientLight intensity={1} />
         <Suspense fallback={null}>
           <ScrollControls
-          pages={16}
+          pages={4}
           >
-            <Scroll>
-              <Images />
-            </Scroll>
+            <Section1 />
             
             <SideToCenterImages 
             images={['/images/studio-background.jpg','/images/studio-background.jpg','/images/studio-background.jpg']}
-            range={[2/16, 2/16]}
+            range={[1/4, 2/4]}
             />
             
           </ScrollControls>
@@ -76,34 +74,35 @@ const Images = () => {
 }
 
 
-const Texts = () => {
-  const { width, height } = useThree((state) => state.viewport)
+const Section1 = () => {
+  const {width, height} = useThree((state) => state.viewport)
   const data = useScroll()
-  const group = useRef()
+  const group = useRef<Group>()
 
   useFrame(() => {
-
-  })
-
-  useLayoutEffect(() => {
-    console.log(width, height)
+    group.current.children[0].material.zoom = 1 + data.range(0, 1/4)
+    group.current.children[1].material.zoom = 1.5 - data.range(2/4, 3/4)
   })
 
   return (
-    <Scroll>
-      <group ref={group}>
-        <Text
-        anchorX='left'
-        color='white'
-        strokeWidth={3}
-        fontSize={1}
-        position={[-width/2, 0, 0]}
-        >
-          JONAS
-        </Text>
-      </group>
-
-    </Scroll>
+    <>
+      <Scroll>
+        <group ref={group}>
+          <Image position={[0, 0, 0]} scale={[width, height, 1]} url='/images/studio-background.jpg' />
+          <Image grayscale={0.8} position={[0, -height*3, 0]} scale={[width, height, 1]} url='/images/studio-background.jpg' />
+        </group>
+      </Scroll>
+      <Scroll html>
+        <section id='hero'>
+          <h1>PHOTO STUDIO</h1>
+        </section>
+      </Scroll>
+    </>
   )
 }
 
+
+const Section2 = () => {
+
+
+}

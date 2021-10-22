@@ -1,3 +1,11 @@
+:root {
+    --color-bg-main: #EDEDED;
+    --color-text-dark: #6C4A4A;
+    --color-text-light: #C89595;
+    --hero-size: clamp(3rem, 10vw, 6rem);
+
+}
+
 body {
     margin: 0;
     width: 100vw;
@@ -7,4 +15,18 @@ body {
 
 main {
     height: 100vh;
+}
+
+section {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    place-items: center;
+    justify-content: space-around;
+}
+
+#hero h1 {
+    font-size: var(--hero-size);
+    color: var(--color-text-dark);
+    text-align: center;
 }
